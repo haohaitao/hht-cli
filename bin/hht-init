@@ -1,0 +1,53 @@
+#!/usr/bin/env node
+
+const program = require("commander");
+const chalk = require("chalk");
+const ora = require("ora");
+const download = require("download-git-repo");
+const tplObj = require(`${__dirname}/../template`);
+
+const V = require("../package").version; // 获取版本
+
+program.usage("<template-name> [project-name]");
+program.parse(process.argv);
+// 当没有输入参数的时候给个提示
+if (program.args.length < 1) return program.help();
+
+// 好比 vue init webpack project-name 的命令一样，第一个参数是 webpack，第二个参数是 project-name
+let templateName = program.args[0];
+let projectName = program.args[1];
+
+if (!tplObj[templateName]) {
+  console.log(chalk.red("\n Template does not exit! \n "));
+  return;
+}
+if (!projectName) {
+  console.log(chalk.red("\n Project should not be empty! \n "));
+  return;
+}
+
+url = `github:${tplObj[templateName]}#main`;
+
+console.log(chalk.blue(`\n Hht CLI v${V} \n`));
+console.log(chalk.white("\n Start generating... \n"));
+
+const spinner = ora("Downloading...");
+spinner.start();
+
+download(url, projectName, { clone: true }, (err) => {
+  if (err) {
+    spinner.fail();
+    console.log(
+      chalk.red(
+        `Generation failed. Please check whether there is an item with the same name in the local`
+      )
+    );
+    console.log(chalk.red(`Generation failed. ${err}`));
+    return;
+  }
+
+  spinner.succeed();
+  console.log(chalk.green(`\n Successfully created project ${projectName}.`));
+  console.log(chalk.green("\n Get started with the following commands:"));
+  console.log(chalk.cyan(`\n $ cd ${projectName} \n`));
+});
