@@ -14,8 +14,8 @@ program.parse(process.argv);
 if (program.args.length < 1) return program.help();
 
 // 好比 vue init webpack project-name 的命令一样，第一个参数是 webpack，第二个参数是 project-name
-let templateName = program.args[0];
-let projectName = program.args[1];
+let templateName = program.args[0]; // 模板名称
+let projectName = program.args[1]; // 项目名称
 
 if (!tplObj[templateName]) {
   console.log(chalk.red("\n Template does not exit! \n "));
@@ -26,7 +26,7 @@ if (!projectName) {
   return;
 }
 
-url = `github:${tplObj[templateName]}#main`;
+url = `github:${tplObj[templateName]}`;
 
 console.log(chalk.blue(`\n Hht CLI v${V} \n`));
 console.log(chalk.white("\n Start generating... \n"));

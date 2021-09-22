@@ -1,8 +1,16 @@
 {
   "name": "hht-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Vue scaffold.",
+  "keywords": [
+    "hht-cli",
+    "vue-cli",
+    "haohaitao"
+  ],
   "homepage": "https://github.com/haohaitao/hht-cli",
+  "bugs": {
+    "url": "https://github.com/haohaitao/hht-cli/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/haohaitao/hht-cli.git"
@@ -13,8 +21,6 @@
   },
   "bin": {
     "hht": "bin/hht",
-    "hht-add": "bin/hht-add",
-    "hht-delete": "bin/hht-delete",
     "hht-list": "bin/hht-list",
     "hht-init": "bin/hht-init"
   },
