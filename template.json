@@ -1,4 +1,5 @@
 {
     "vue2": "haohaitao/vue-easy-template#main",
-    "mobile-vue2": "haohaitao/vue-h5-template#vue-h5-template"
+    "mobile-vue2": "haohaitao/vue-h5-template#vue-h5-template",
+	"uniapp": "haohaitao/vue-uniapp-template#master"
 }
