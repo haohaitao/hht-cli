@@ -39,7 +39,8 @@ Open your terminal and type `hht` or `hht -h` , you'll see the help infomation b
 ```
 {
    'vue2': 'haohaitao/vue-easy-template#main',
-   'mobile-vue2': 'haohaitao/vue-h5-template#vue-h5-template'
+   'mobile-vue2': 'haohaitao/vue-h5-template#vue-h5-template',
+   'uniapp': 'haohaitao/vue-uniapp-template#master'
 }
 ```
 - hht init vue2 test (Initialize a vue2 template named test)
